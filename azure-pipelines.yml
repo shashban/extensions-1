@@ -1,13 +1,22 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
+stages:
+- stage: Build
+  displayName: Build stage
+  jobs:  
+  - job: Build
+    displayName: Build job
+    
+    steps:
+    - script: echo Build
 
-
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- stage: Deploy
+  displayName: Deploy stage
+  dependsOn: Build
+  jobs:
+  - deployment: Deploy
+    displayName: Deploy job
+    environment: 'gopinathchexpressAKS - 2081519516.default'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - script: echo deplot
