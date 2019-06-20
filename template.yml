@@ -3,14 +3,6 @@
 parameters:
   repositoryName: ''
 steps:
-- bash: |
-  if [ -z "$SOLUTION" ]; then
-    echo "##vso[task.logissue type=error;]Missing template parameter \"repositoryName\""
-    echo "##vso[task.complete result=Failed;]"
-  fi
-  env:
-    SOLUTION: ${{ parameters.repositoryName }}
-  displayName: Check for required parameters
 - script: echo Hello template
 - checkout: ${{ parameters.repositoryName }}
   clean: false
