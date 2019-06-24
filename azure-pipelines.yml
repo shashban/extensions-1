@@ -4,6 +4,10 @@ stages:
   - job: BuildApp
     steps:
     - script: echo my first build job
+  - job: BuildApp2
+    dependsOn: BuildApp
+    steps:
+    - script: echo my second build job  
 - stage: Deploy
   jobs:
     # track deployments on the environment
