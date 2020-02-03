@@ -20,4 +20,13 @@ stages:
         deploy:
           steps:
           - script: echo my first deployment
+  - deployment: DeployToDev
+    # creates an environment if it doesn’t exist
+    environment: 'Dev-shashban2'
+    strategy:
+      # default deployment strategy
+      runOnce:
+        deploy:
+          steps:
+          - script: echo my first deployment
  
