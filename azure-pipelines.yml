@@ -20,7 +20,7 @@ stages:
         deploy:
           steps:
           - script: echo my first deployment
-  - deployment: DeployToDev
+  - deployment: DeployToDev2
     # creates an environment if it doesn’t exist
     environment: 'Dev-shashban2'
     strategy:
